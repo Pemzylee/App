@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="icon" type="image/jpg" sizes="32x32" href="{{ url_for('static', filename='images/C.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-6.5.1-web/css/all.min.css') }}">
+</head>
+<body class="profile-body">
+    <div class="profile-cont">
+        <header>
+            <nav class="nav-bar">
+                <i class="fa-solid fa-user" id="profile-icon"></i>
+
+                <div class="dropdown-content">
+                    <a href="/profile">Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            </nav>
+        </header>
+        <form action="/profile" method="post" enctype="multipart/form-data">
+
+
+            <div class="profile-img">
+                <img src="" id="prof_icon" class="fa-solid fa-user" alt="">
+            </div>
+            <div id="camera-icon">
+                <img src="" class="fa-solid fa-camera" alt="">
+            </div>
+            <button type="submit" class="profile-btn">
+                <img src="" class="fa-solid fa-pen" alt=""> Edit profile</button>
+
+            <h2 class="line"></h2>
+
+
+
+            <!-- <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" value="{{ user.username }}" required><br><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" value="{{ user.email }}" required><br><br>
+            
+            <label for="profile_picture">Profile Picture:</label><br>
+            <input type="file" id="profile_picture" name="profile_picture"><br><br>
+
+            <input type="submit" value="Update Profile"> -->
+        </form>
+    </div>
+</body>
+</html>

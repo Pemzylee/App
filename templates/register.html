@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page - CHAT ME</title>
+    <link rel="icon" type="image/jpg" sizes="32x32" href="{{ url_for('static', filename='images/C.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-6.5.1-web/css/all.min.css') }}">
+
+
+</head>
+<body>
+    <main class="modal" id="modal">
+
+        <section class="signup-cont">
+            <form action="/register" method="post" class="modal-content animate" id="signup-content">
+                <div class="img">
+                    <img src="{{ url_for('static', filename='images/C.png') }}" alt="Your App Logo">
+                </div>
+
+                <div class="container" id="signup-container">
+                    <label for="email"> <div class="p"><span id="errorEmailSignup"></span></div>Email Address</label>
+                    <input type="text" placeholder="Email Address" name="signupEmail" id="signupEmail" autofocus>
+                    
+                    <label for="username"> <div class="p"><span id="errorNameSignup"></span></div>Username</label>
+                    <input type="text" placeholder="Enter Username" name="signupUsername" id="signupUsername" autocomplete="off" autofocus>
+            
+                    <label for="password">Password</label>
+                    <span id="errorPasswordSignup"></span>
+                    <input type="password" placeholder="Enter Password" name="signupPassword" id="signupPassword" autocomplete="new-password" autofocus>
+                    
+                    <label for="confirm_password">Re-enter Password:</label>
+                    <span id="errorRetypePasswordSignup"></span>
+                    <input id="confirm_password_signup" name="confirm_password" placeholder="Re-enter Password" autocomplete="new-password" autofocus>
+
+                    <div class="remember-cont">
+                        <input type="checkbox" checked="checked" name="remember" class="remember-me">
+                        <label for="remember">Remember Me</label>
+                    </div>
+
+                    <a href="/" >
+                        <button class="signup" id="signup-btn">Sign-up</button>
+                    </a>
+                    <!-- <button type="submit" id="back-to-login">Back to Login</button> -->
+
+                    <div class="signup-login">
+                        <p>I have an account? <a href="/login" type="submit" id="back-to-login">Log-in</a></ul></p>
+                    </div>
+                </div>
+            </form>
+
+            <div id="phone-number-validation">
+                <h1>Phone number validation</h1>
+                <form id="otp-form" action="/start_verification" method="post">
+                    <input type="tel" name="phone" placeholder="Phone Number">
+                    <button type="submit">Send code</button>
+                </form>
+            </div>
+                
+                <div id="phone-number-verification">
+                    <h1>Phone number verification</h1>
+                    <form id="otp-form-verify" action="/verify" method="post">
+                        <input type="text" id="verification-code" name="code" placeholder="Enter Verification Code" required>
+                        <input type="hidden" id="verification-request-id" name="request_id">
+                        <button type="submit">Verify</button>
+                    </form>
+                </div>
+        </section>  
+    </main>
+
+    <script src="{{ url_for('static', filename='js/pop.js') }}"></script>
+</body>
+</html>
